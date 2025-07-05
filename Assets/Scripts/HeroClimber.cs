@@ -20,7 +20,8 @@ public class HeroClimber : MonoBehaviour
 
         // Snap Hero exactly onto the bridge’s Y, then pause briefly
         Vector3 pos = transform.position;
-        pos.y = other.transform.position.y + 0.16f;   // 0.16 = half of 32-px PPU
+        float spriteHalfHeight = GetComponent<SpriteRenderer>().bounds.extents.y;
+        pos.y = other.transform.position.y + spriteHalfHeight;
         transform.position = pos;
 
         // Pause, then resume climbing
